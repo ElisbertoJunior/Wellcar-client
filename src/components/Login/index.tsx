@@ -1,16 +1,19 @@
-import { LoginContainer } from "./styles"
+import { FormContainer, LoginContainer } from "./styles"
 
+type Props = {
+  onClick: () => void
+}
 
-const Login = () => {
+const Login = ({onClick}: Props) => {
   return (
     <LoginContainer>
-      <div>
+      <FormContainer>
         <form>
           <input type="text" placeholder="usuario"/>
           <input type="password" placeholder="senha"/>
-          <button type="submit">Entar</button>
+          <button type="submit" onClick={onClick}>Entrar</button>
         </form>
-      </div>
+      </FormContainer>
     </LoginContainer>
   )
 }

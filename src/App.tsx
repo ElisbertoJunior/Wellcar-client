@@ -5,6 +5,7 @@ import GlobalStyle, { colors } from "./styles";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./routes";
 import Login from "./components/Login";
+import { useState } from "react";
 
 const Container = styled.div`
   display: grid;
@@ -19,9 +20,11 @@ export const MainContainer = styled.div`
 `;
 
 const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   return (
     <>
-      <Login />
+      {!isAuthenticated ? <Login onClick={() => setIsAuthenticated(true)}/> : null}
+      
       <BrowserRouter>
         <GlobalStyle />
         <Container>
