@@ -1,20 +1,36 @@
 import styled from "styled-components";
-import GlobalStyle from "./styles";
+import NavBar from "./components/NavBar";
+import GlobalStyle, { colors } from "./styles";
 
-const NavBar = styled.div``;
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./routes";
+import Login from "./components/Login";
 
-const Main = styled.main``;
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  position: relative;
+`;
 
-const Container = styled.div``;
+export const MainContainer = styled.div`
+  background: ${colors.grayColor};
+  padding: 0.5rem;
+  min-height: 100vh;
+`;
 
 const App = () => {
   return (
     <>
-      <GlobalStyle />
-      <Container>
-        <NavBar />
-        <Main />
-      </Container>
+      <Login />
+      <BrowserRouter>
+        <GlobalStyle />
+        <Container>
+          <NavBar />
+          <MainContainer>
+            <Routes />
+          </MainContainer>
+        </Container>
+      </BrowserRouter>
     </>
   );
 };
