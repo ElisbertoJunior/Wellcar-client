@@ -3,7 +3,8 @@ import { colors } from "../../styles";
 
 type Props = {
   colorButton?: "danger" | "success";
-  children: string
+  children: string;
+  onClick?: () => void;
 };
 
 export const ButtonContainer = styled.button<Props>`
@@ -19,18 +20,20 @@ export const ButtonContainer = styled.button<Props>`
   }
 
   background: ${(props) => {
-    if(props.colorButton === "danger") {
-      return colors.redColor
-    } else if(props.colorButton === "success") {
-      return colors.greenColor
-    } else return colors.blackColor
+    if (props.colorButton === "danger") {
+      return colors.redColor;
+    } else if (props.colorButton === "success") {
+      return colors.greenColor;
+    } else return colors.blackColor;
   }};
 `;
 
-const Button = ({colorButton, children}: Props) => {
+const Button = ({ colorButton, children, onClick }: Props) => {
   return (
-    <ButtonContainer colorButton={colorButton}>{children}</ButtonContainer>
-  )
-}
+    <ButtonContainer onClick={onClick} colorButton={colorButton}>
+      {children}
+    </ButtonContainer>
+  );
+};
 
-export default Button
+export default Button;
