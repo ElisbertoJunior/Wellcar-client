@@ -1,21 +1,23 @@
-import { FormContainer, LoginContainer } from "./styles"
+import { FormContainer, LoginContainer } from "./styles";
 
 type Props = {
-  onClick: () => void
-}
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+};
 
-const Login = ({onClick}: Props) => {
+const Login = ({ onSubmit }: Props) => {
   return (
     <LoginContainer>
       <FormContainer>
-        <form>
-          <input type="text" placeholder="usuario"/>
-          <input type="password" placeholder="senha"/>
-          <button type="submit" onClick={onClick}>Entrar</button>
+        <form onSubmit={onSubmit}>
+          <input type="text" placeholder="usuario" />
+          <input type="password" placeholder="senha" />
+          <button type="submit">
+            Entrar
+          </button>
         </form>
       </FormContainer>
     </LoginContainer>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

@@ -3,8 +3,9 @@ import { createGlobalStyle } from "styled-components";
 export const colors = {
   blackColor: '#000',
   whiteColor: '#fff',
-  grayColor: '#FBFAF7'
-
+  grayColor: '#FBFAF7',
+  redColor: '#EB3128',
+  greenColor: '#40EA5D'
 }
 
 export const breakpoints = {

@@ -21,9 +21,14 @@ export const MainContainer = styled.div`
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
+  const login = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+      setIsAuthenticated(true)
+  }
   return (
     <>
-      {!isAuthenticated ? <Login onClick={() => setIsAuthenticated(true)}/> : null}
+      {!isAuthenticated ? <Login onSubmit={login}/> : null}
       
       <BrowserRouter>
         <GlobalStyle />
