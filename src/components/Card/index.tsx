@@ -1,29 +1,62 @@
-import Button from "../Button"
-import {CardContainer } from "./styles"
+import { CardContainer, InternalCard } from "./styles";
 
+type Props = {
+  id: number;
+  name: string;
+  phone: string;
+  cpf: number;
+  email: string;
+  // "cars": []
+  children?: JSX.Element;
+  typeCard?: "internal" | "external";
+};
 
-const Card = () => {
-  return (
-    <CardContainer>
-      <strong>Nome:</strong>
-      <h3>Rogerio</h3>
-      <br />
+const Card = ({ cpf, email, id, name, phone, children, typeCard }: Props) => {
 
-      <strong>Telefone:</strong> 
-      <p>6212345789</p>
-      <br />
+  if (typeCard === "external") {
+    return (
+      <CardContainer to={`/client/${id}`}>
+        <strong>Nome:</strong>
+        <h3>{name}</h3>
+        <br />
 
-      <strong>cpf:</strong> 
-      <p>1234567893</p>
-      <br />
+        <strong>Telefone:</strong>
+        <p>{phone}</p>
+        <br />
 
-      <strong>Email:</strong> 
-      <p>teste@teste.com</p>
-      <br />
-      <hr />
-      <Button children={"Detalhes"}/>
-    </CardContainer>
-  )
-}
+        <strong>cpf:</strong>
+        <p>{cpf}</p>
+        <br />
 
-export default Card
+        <strong>Email:</strong>
+        <p>{email}</p>
+        <br />
+        <hr />
+        {children}
+      </CardContainer>
+    );
+  } else
+    return (
+      <InternalCard>
+        <strong>Nome:</strong>
+        <h3>{name}</h3>
+        <br />
+
+        <strong>Telefone:</strong>
+        <p>{phone}</p>
+        <br />
+
+        <strong>cpf:</strong>
+        <p>{cpf}</p>
+        <br />
+
+        <strong>Email:</strong>
+        <p>{email}</p>
+        <br />
+        <hr />
+        {children}
+      </InternalCard>
+    );
+};
+
+export default Card;

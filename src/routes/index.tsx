@@ -6,12 +6,14 @@ import Products from "../pages/Products";
 import Labor from "../pages/Labor";
 import Reports from "../pages/Reports";
 import ServiceOrder from "../pages/ServiceOrder";
+import ClientDetails from "../pages/ClientDetails";
 
 const Routes = () => {
   return (
     <Router>
       <Route path="/" element={<Home />} />
       <Route path="/clients" element={<Clients />} />
+      <Route path="/client/:id" element={<ClientDetails />} />
       <Route path="/budgets" element={<Budget />} />
       <Route path="/labor" element={<Labor />} />
       <Route path="/products" element={<Products />} />
