@@ -6,7 +6,6 @@ type Props = {
   phone: string;
   cpf: number;
   email: string;
-  // "cars": []
   children?: JSX.Element;
   typeCard?: "internal" | "external";
 };

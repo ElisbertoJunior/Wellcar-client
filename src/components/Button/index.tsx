@@ -12,7 +12,7 @@ export const ButtonContainer = styled.button<Props>`
   padding: 1rem;
   border-radius: 8px;
   font-size: 1rem;
-  margin: 1rem;
+  margin: 1rem 1rem 1rem 0;
   cursor: pointer;
   border: none;
   &:hover {
